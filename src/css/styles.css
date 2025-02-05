@@ -1,0 +1,35 @@
+@import './header.css';
+@import './hero.css';
+@import './aboutMe.css';
+@import './benefis.css';
+@import './project.css';
+@import './faq.css';
+@import './covers.css';
+@import './reviews.css';
+@import './footer.css';
+
+
+:root {
+  /* Шрифты: */
+font-family: 'Inter', sans-serif;
+    /* hover: */
+--light-crimson: #ED3B44;
+/* color-button: */
+--dark-crimson:#E0373F;
+/* background */
+--dark: #1C1D20;
+/* Cards: */
+--dark-gray: #242527;
+/* Array/logo: */
+--gray: #3B3B3B;
+/* For links and etc */
+--white: #FAFAFA;
+/* Success: */
+--green: #3CBC81;
+}
+
+body {
+  background-color: green;
+font-family: 'Inter', sans-serif;
+font-weight: 500;
+}
