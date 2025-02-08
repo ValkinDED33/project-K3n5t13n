@@ -47,12 +47,12 @@ button {
 
 /* ====== Основные стили ====== */
 .faq {
-  max-width: 1440px; /* Максимальная ширина */
-  width: 100%; /* Ширина на 100% */
-  height: 640px; /* Высота */
-  margin: 50px auto; /* Центрирование */
-  padding: 20px; /* Внутренний отступ */
-  background-color: #2a2a2a; /* Цвет фона */
+  max-width: 1440px;
+  width: 100%;
+  height: 640px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #2a2a2a;
 }
 
 /* Заголовок FAQ */
@@ -66,9 +66,9 @@ button {
 /* ====== Сетка FAQ (3x2) ====== */
 .faq-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 столбца */
-  grid-template-rows: repeat(3, 1fr); /* 3 строки */
-  gap: 20px; /* Промежутки между элементами */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -86,7 +86,7 @@ button {
 }
 
 .faq-item:hover {
-  background-color: #292929; /* Цвет фона при наведении */
+  background-color: #292929;
 }
 
 /* ====== Стиль для вопросов и стрелок ====== */
