@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const toggle = item.querySelector('.faq-toggle svg');
       toggle.style.transform = answer.classList.contains('hidden')
         ? 'rotate(0deg)'
-        : 'rotate(180deg)'; // Поворот стрелки
+        : 'rotate(180deg)';
     });
   });
 });
