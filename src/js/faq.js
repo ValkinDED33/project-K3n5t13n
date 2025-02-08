@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const createFaqItem = item => {
     return `
-      <div class="faq-item">
+      <li class="faq-item">
         <div class="faq-question">
           ${item.question}
           <span class="faq-toggle">
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </span>
         </div>
         <div class="faq-answer hidden">${item.answer}</div>
-      </div>
+      </li>
     `;
   };
 

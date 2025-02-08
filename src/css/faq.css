@@ -45,47 +45,51 @@ button {
   cursor: pointer;
 }
 
-/* ====== Основні стилі ====== */
+/* ====== Основные стили ====== */
 .faq {
-  max-width: 1100px;
+  max-width: 1440px;
+  width: 100%;
+  height: 640px;
   margin: 50px auto;
   padding: 20px;
+  background-color: #2a2a2a;
 }
 
+/* Заголовок FAQ */
 .faq-title {
-  text-align: left;
-  font-size: 1.8em;
+  text-align: center;
+  font-size: 2em;
   margin-bottom: 20px;
   color: #bbb;
 }
 
-/* ====== Сітка FAQ (2x3) ====== */
+/* ====== Сетка FAQ (3x2) ====== */
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
-  gap: 0;
-  border-top: 1px solid #333;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+/* Стиль для каждого элемента FAQ */
 .faq-item {
   background-color: #1e1e1e;
   padding: 20px;
-  transition: background-color 0.4s ease-out; /* Плавное изменение фона */
-  border-bottom: 1px solid #333;
-  border-right: 1px solid #333;
-}
-
-/* Прибираємо праву границю у парних елементів */
-.faq-item:nth-child(2n) {
-  border-right: none;
+  border: 1px solid #333;
+  transition: background-color 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .faq-item:hover {
   background-color: #292929;
 }
 
-/* ====== Кнопка питання ====== */
+/* ====== Стиль для вопросов и стрелок ====== */
 .faq-question {
   width: 100%;
   text-align: left;
@@ -97,20 +101,19 @@ button {
   align-items: center;
   font-weight: bold;
   position: relative;
-  transition: background-color 0.4s ease-in-out, transform 0.3s ease-out; /* Плавное изменение фона и размера */
+  transition: background-color 0.4s ease-in-out, transform 0.3s ease-out; /* Плавное изменение фона */
 }
 
-/* Окружность вокруг стрелки */
 .faq-toggle {
   position: relative;
-  width: 35px; /* Увеличен размер кнопки */
+  width: 35px; /* Размер кнопки */
   height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Кнопка круглая */
+  border-radius: 50%;
   background-color: #333;
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Плавное изменение фона и масштаба */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .faq-toggle:hover {
@@ -123,34 +126,14 @@ button {
   height: 10px;
   stroke: #fafafa;
   stroke-width: 2px;
-  transition: transform 0.3s ease-in-out; /* Плавный поворот стрелки */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Поворот стрелки при активном элементе */
 .faq-item.active .faq-toggle svg {
-  transform: rotate(180deg); /* Поворот на 180 градусов */
+  transform: rotate(180deg); /* Поворот стрелки при активном элементе */
 }
 
-/* Убедимся, что для первой кнопки также применяется одинаковая форма */
-.faq-item:first-child .faq-question .faq-toggle {
-  width: 35px;
-  height: 35px;
-}
-
-.faq-item:first-child .faq-question {
-  padding-left: 20px;
-}
-
-/* Виправлення для першої та останньої кнопки */
-.faq-item:first-child {
-  border-top: none;
-}
-
-.faq-item:last-child {
-  border-bottom: none;
-}
-
-/* ====== Відповідь ====== */
+/* ====== Ответ ====== */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -163,28 +146,20 @@ button {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px; /* Значение должно быть достаточно большим, чтобы окно плавно раскрывалось */
+  max-height: 500px; /* Увеличиваем максимальную высоту при открытии */
   opacity: 1;
   padding-top: 10px;
 }
 
-/* ====== Адаптивність ====== */
-
+/* ====== Адаптивность ====== */
 @media (max-width: 1024px) {
   .faq-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 столбец на экранах меньше 1024px */
     grid-template-rows: auto;
-  }
-  .faq-item {
-    border-right: none;
   }
 }
 
 @media (max-width: 768px) {
-  .faq-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
   .faq-question {
     font-size: 1em;
     padding: 12px;
@@ -193,12 +168,10 @@ button {
 
 @media (max-width: 374px) {
   .faq-grid {
-    display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Столбцы превращаются в вертикальный ряд */
   }
   .faq-item {
     width: 100%;
-    flex-grow: 1;
   }
   .faq-question {
     font-size: 0.9em;
