@@ -118,7 +118,7 @@ button {
 
 .faq-toggle:hover {
   background-color: #555;
-  transform: scale(1.1); /* Увеличение кнопки при наведении */
+  transform: scale(1.1);
 }
 
 .faq-toggle svg {
