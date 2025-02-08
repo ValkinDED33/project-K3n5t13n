@@ -1,12 +1,51 @@
-/* Общие стили */
-body {
-  font-family: 'Arial', sans-serif;
+/* ====== CSS Reset (Стандартное скидывание стилей) ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #1c1d20;
-  color: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  background-color: #1c1d20;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ====== Основні стилі ====== */
 .faq {
   max-width: 1100px;
   margin: 50px auto;
@@ -20,10 +59,11 @@ body {
   color: #bbb;
 }
 
-/* Стили для сетки FAQ */
+/* ====== Сітка FAQ (2x3) ====== */
 .faq-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
   gap: 0;
   border-top: 1px solid #333;
 }
@@ -31,11 +71,12 @@ body {
 .faq-item {
   background-color: #1e1e1e;
   padding: 20px;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.4s ease-out; /* Плавное изменение фона */
   border-bottom: 1px solid #333;
   border-right: 1px solid #333;
 }
 
+/* Прибираємо праву границю у парних елементів */
 .faq-item:nth-child(2n) {
   border-right: none;
 }
@@ -44,43 +85,72 @@ body {
   background-color: #292929;
 }
 
-/* Кнопка вопроса */
+/* ====== Кнопка питання ====== */
 .faq-question {
   width: 100%;
-  background: none;
-  border: none;
   text-align: left;
-  padding: 15px 0;
+  padding: 18px;
   font-size: 1em;
-  cursor: pointer;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
+  position: relative;
+  transition: background-color 0.4s ease-in-out, transform 0.3s ease-out; /* Плавное изменение фона и размера */
 }
 
-/* Иконка */
-.faq-icon {
+/* Окружность вокруг стрелки */
+.faq-toggle {
+  position: relative;
+  width: 35px; /* Увеличен размер кнопки */
+  height: 35px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(250, 250, 250, 0.2);
-  border-radius: 50%;
-  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  align-items: center;
+  border-radius: 50%; /* Кнопка круглая */
+  background-color: #333;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Плавное изменение фона и масштаба */
 }
 
-.faq-question:hover .faq-icon {
-  background-color: rgba(255, 255, 255, 0.1);
+.faq-toggle:hover {
+  background-color: #555;
+  transform: scale(1.1); /* Увеличение кнопки при наведении */
 }
 
-.faq-item.active .faq-icon {
-  transform: rotate(180deg);
+.faq-toggle svg {
+  width: 14px; /* Размер стрелки */
+  height: 10px;
+  stroke: #fafafa;
+  stroke-width: 2px;
+  transition: transform 0.3s ease-in-out; /* Плавный поворот стрелки */
 }
 
-/* Ответ */
+/* Поворот стрелки при активном элементе */
+.faq-item.active .faq-toggle svg {
+  transform: rotate(180deg); /* Поворот на 180 градусов */
+}
+
+/* Убедимся, что для первой кнопки также применяется одинаковая форма */
+.faq-item:first-child .faq-question .faq-toggle {
+  width: 35px;
+  height: 35px;
+}
+
+.faq-item:first-child .faq-question {
+  padding-left: 20px;
+}
+
+/* Виправлення для першої та останньої кнопки */
+.faq-item:first-child {
+  border-top: none;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+/* ====== Відповідь ====== */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -88,23 +158,50 @@ body {
   color: #aaa;
   opacity: 0;
   padding-top: 0;
-  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out,
-    padding 0.3s ease-in-out;
+  transition: max-height 0.8s ease-out, opacity 0.6s ease-out,
+    padding 0.6s ease-out;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 250px;
+  max-height: 500px; /* Значение должно быть достаточно большим, чтобы окно плавно раскрывалось */
   opacity: 1;
   padding-top: 10px;
 }
 
-/* Адаптивность */
+/* ====== Адаптивність ====== */
+
+@media (max-width: 1024px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .faq-item {
+    border-right: none;
+  }
+}
+
 @media (max-width: 768px) {
   .faq-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: auto;
   }
+  .faq-question {
+    font-size: 1em;
+    padding: 12px;
+  }
+}
 
+@media (max-width: 374px) {
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+  }
   .faq-item {
-    border-right: none;
+    width: 100%;
+    flex-grow: 1;
+  }
+  .faq-question {
+    font-size: 0.9em;
+    padding: 12px;
   }
 }

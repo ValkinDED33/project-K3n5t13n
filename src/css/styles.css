@@ -8,28 +8,21 @@
 @import './reviews.css';
 @import './footer.css';
 
-
 :root {
   /* Шрифты: */
-font-family: 'Inter', sans-serif;
-    /* hover: */
---light-crimson: #ED3B44;
-/* color-button: */
---dark-crimson:#E0373F;
-/* background */
---dark: #1C1D20;
-/* Cards: */
---dark-gray: #242527;
-/* Array/logo: */
---gray: #3B3B3B;
-/* For links and etc */
---white: #FAFAFA;
-/* Success: */
---green: #3CBC81;
-}
-
-body {
-  background-color: green;
-font-family: 'Inter', sans-serif;
-font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  /* hover: */
+  --light-crimson: #ed3b44;
+  /* color-button: */
+  --dark-crimson: #e0373f;
+  /* background */
+  --dark: #1c1d20;
+  /* Cards: */
+  --dark-gray: #242527;
+  /* Array/logo: */
+  --gray: #3b3b3b;
+  /* For links and etc */
+  --white: #fafafa;
+  /* Success: */
+  --green: #3cbc81;
 }
